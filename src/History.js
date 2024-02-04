@@ -5,9 +5,8 @@ export default function History({ data, setData }) {
     const sendHistory = (e) => {
         console.log("Changed value:", e.target.value);
         axios.get(`${process.env.REACT_APP_BACKEND_URL}history?search=${e.target.value}`)
-            .then((data) => {
-                console.log(data);
-                setData(data);
+            .then((response) => {
+                setData(response?.data);
             }).catch((e) => console.error(e));
     };
 
